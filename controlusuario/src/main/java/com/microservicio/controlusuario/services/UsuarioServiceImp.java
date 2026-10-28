@@ -29,7 +29,16 @@ public class UsuarioServiceImp implements UsuarioService {
     @Override
     public Usuario crearUsuario(Usuario usuario) {
 
-        return usuarioRepository.save(usuario);
+        if(!usuarioRepository.existsByUsuario(usuario.getUsuario())){
+
+            return usuarioRepository.save(usuario);
+
+        }
+
+
+        return null;
+
+
     }
 
 
